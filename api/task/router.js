@@ -12,14 +12,6 @@ router.get('/', (req, res, next) => {
     .catch(next);
 });
 
-router.get('/:id', (req, res, next) => {
-  Task.get(req.params.id)
-    .then(esp => {
-      res.status(200).json(esp);
-    })
-    .catch(next);
-});
-
 router.post('/', (req, res, next) => {
   Task.post(req.body)
     .then(esp => {

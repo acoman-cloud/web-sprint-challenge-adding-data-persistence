@@ -6,10 +6,8 @@ async function get() {
 }
 
 async function post(resource) {
-	const rows = await db('resources')
-		.insert(resource)
-		.then(([id]) => db('resources').where('resource_id', id))
-	return rows
+	const resource_id = await db('resources').insert(resource)
+	return db('resources').where({ resource_id }).first()
 }
 
 module.exports = {
