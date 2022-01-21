@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
     "test": "cross-env NODE_ENV=testing jest --verbose --runInBand --silent"
   },
   "repository": {
@@ -14,6 +18,13 @@
     "cross-env": "7.0.3",
     "eslint": "8.4.1",
     "jest": "27.4.3",
+    "nodemon": "^2.0.15",
     "supertest": "6.1.6"
+  },
+  "dependencies": {
+    "@mapbox/node-pre-gyp": "^1.0.8",
+    "express": "^4.17.2",
+    "knex": "^0.95.15",
+    "sqlite3": "^5.0.2"
   }
 }
