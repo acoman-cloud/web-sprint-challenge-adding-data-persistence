@@ -1,3 +1,4 @@
+
 exports.up = async function (knex) {
 	await knex.schema
 		.createTable('projects', table => {
@@ -24,7 +25,7 @@ exports.up = async function (knex) {
 				.onDelete('CASCADE')
 				.onUpdate('CASCADE')
 		})
-		.createTable('project_resources', table => {
+		.createTable('projects_resources', table => {
 			table.increments('project_resource_id')
 			table.integer('project_id')
 				.unsigned()
@@ -45,8 +46,8 @@ exports.up = async function (knex) {
 
 exports.down = async function (knex) {
 	await knex.schema
-		.dropTableIfExists('zoo_animals')
-		.dropTableIfExists('animals')
-		.dropTableIfExists('species')
-		.dropTableIfExists('zoos')
+		.dropTableIfExists('projects_resources')
+		.dropTableIfExists('tasks')
+		.dropTableIfExists('resources')
+		.dropTableIfExists('projects')
 };
